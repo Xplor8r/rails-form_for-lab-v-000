@@ -5,28 +5,28 @@ class SchoolClassesController < ApplicationController
 	end
 
 	def show
-		@student = SchoolClass.find(params[:id])
+		@school_class = SchoolClass.find(params[:id])
 	end
 
 	def new
-		@student = SchoolClass.new
+		@school_class = SchoolClass.new
 	end
 
 	def create
-	  @student = SchoolClass.new
-	  @student.first_name = params[:first_name]
-	  @student.last_name = params[:last_name]
-	  @student.save
-	  redirect_to student_path(@student)
+	  @school_class = SchoolClass.new
+	  @school_class.title = params[:title]
+	  @school_class.room_number = params[:room_number]
+	  @school_class.save
+	  redirect_to student_path(@school_class)
 	end
 
 	def edit
-		@student = SchoolClass.find(params[:id])
+		@school_class = SchoolClass.find(params[:id])
 	end
 
 	def update
-	  @student = SchoolClass.find(params[:id])
-		@student.update(params.require(:student))
-		redirect_to student_path(@student)
+	  @school_class = SchoolClass.find(params[:id])
+		@school_class.update(params.require(:school_class))
+		redirect_to student_path(@school_class)
 	end
 end
